@@ -11,7 +11,7 @@ describe('Golden Master test', function () {
              new Item('bacon', 5, 10),
              new Item('Aged Brie', 30,45),
              new Item('Backstage passes to a TAFKAL80ETC concert', 20, 20),
-             new Item('Sulfuras, Hand of Ragnaros', 1000, 50),
+             new Item('Sulfuras, Hand of Ragnaros', 1000, 80),
              new Item('dog food', 30, 30),
              new Item('Aged Brie', 40,35) ]);
 
@@ -25,7 +25,7 @@ describe('Golden Master test', function () {
             new Item('bacon', 4, 9), // -1 both
             new Item('Aged Brie', 29,46), // -1 sellin, +1 quality
             new Item('Backstage passes to a TAFKAL80ETC concert', 19, 21), // -1 sellin, +1 quality
-            new Item('Sulfuras, Hand of Ragnaros', 1000, 50), // nothing changes
+            new Item('Sulfuras, Hand of Ragnaros', 1000, 80), // nothing changes
             new Item('dog food', 29, 29), // -1 both
             new Item('Aged Brie', 39,36) ]; // -1 sellin, +1 quality
 
@@ -44,7 +44,7 @@ describe('Golden Master test', function () {
             new Item('bacon', 0, 5), // -5 both
             new Item('Aged Brie', 25,50), // -5 sellin, +5 quality
             new Item('Backstage passes to a TAFKAL80ETC concert', 15, 25), // -5 sellin, +5 quality
-            new Item('Sulfuras, Hand of Ragnaros', 1000, 50), // nothing changes
+            new Item('Sulfuras, Hand of Ragnaros', 1000, 80), // nothing changes
             new Item('dog food', 25, 25), // -5 both
             new Item('Aged Brie', 35,40) ]; // -5 sellin, +5 quality
 
@@ -64,7 +64,7 @@ describe('Golden Master test', function () {
             new Item('bacon', -5, 0), // same as eggs
             new Item('Aged Brie', 20,50), // -5 sellin, +5 quality, it should have been +10 but 50 is maximum quality
             new Item('Backstage passes to a TAFKAL80ETC concert', 10, 30), // -10 sellin, +10 quality
-            new Item('Sulfuras, Hand of Ragnaros', 1000, 50), // nothing changes
+            new Item('Sulfuras, Hand of Ragnaros', 1000, 80), // nothing changes
             new Item('dog food', 20, 20), // -10 both
             new Item('Aged Brie', 30,45) ]; // -10 sellin, +10 quality
 

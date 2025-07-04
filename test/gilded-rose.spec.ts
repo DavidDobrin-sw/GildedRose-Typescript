@@ -11,14 +11,14 @@ describe('Aged Brie ', function () {
 
 
     it('I expect the Aged Brie quality to increase after one day', function() {
-        const items = gildedRose.updateQuality();
+        gildedRose.updateQuality();
         const agedBrieCheese: Item = new Item('Aged Brie', 9, 46);
         expect(agedBrieCheese.quality).to.eql(gildedRose.items[0].quality);
         expect(agedBrieCheese.sellIn).to.eql(gildedRose.items[0].sellIn);
     });
 
     it('I expect the quality of the brie to not exceed 50 after 6 days', function (){
-        const items = gildedRose.updateQuality();
+        gildedRose.updateQuality();
         gildedRose.updateQuality();
         gildedRose.updateQuality();
         gildedRose.updateQuality();
@@ -31,7 +31,7 @@ describe('Aged Brie ', function () {
     });
 
     it('I expect the Aged Brie quality to not decrease even when it sell by date passed', function() {
-        const items = gildedRose.updateQuality();
+        gildedRose.updateQuality();
         gildedRose.updateQuality();
         gildedRose.updateQuality();
         gildedRose.updateQuality();
@@ -43,3 +43,26 @@ describe('Aged Brie ', function () {
 
 });
 
+describe('Sulfuras', function () {
+
+    let gildedRose: GildedRose;
+
+    before(function () {
+        gildedRose = new GildedRose([new Item('Sulfuras, Hand of Ragnaros', 1000, 80)]);
+    })
+
+
+    it('I expect the Sulfuras attributes to remain always the same forever', function() {
+        gildedRose.updateQuality();
+        const baseSulfuras: Item = new Item('Sulfuras, Hand of Ragnaros', 1000, 80);
+        expect(baseSulfuras.quality).to.eql(gildedRose.items[0].quality);
+        expect(baseSulfuras.sellIn).to.eql(gildedRose.items[0].sellIn);
+
+        gildedRose.updateQuality();
+        gildedRose.updateQuality();
+
+        expect(baseSulfuras.quality).to.eql(gildedRose.items[0].quality);
+        expect(baseSulfuras.sellIn).to.eql(gildedRose.items[0].sellIn);
+    });
+
+});

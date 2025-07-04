@@ -43,3 +43,26 @@ describe('Aged Brie ', function () {
 
 });
 
+describe('Sulfuras', function () {
+
+    let gildedRose: GildedRose;
+
+    before(function () {
+        gildedRose = new GildedRose([new Item('Sulfuras, Hand of Ragnaros', 1000, 80)]);
+    })
+
+
+    it('I expect the Sulfuras attributes to remain always the same forever', function() {
+        let items = gildedRose.updateQuality();
+        const baseSulfuras: Item = new Item('Sulfuras, Hand of Ragnaros', 1000, 80);
+        expect(baseSulfuras.quality).to.eql(gildedRose.items[0].quality);
+        expect(baseSulfuras.sellIn).to.eql(gildedRose.items[0].sellIn);
+
+        items = gildedRose.updateQuality();
+        items = gildedRose.updateQuality();
+
+        expect(baseSulfuras.quality).to.eql(gildedRose.items[0].quality);
+        expect(baseSulfuras.sellIn).to.eql(gildedRose.items[0].sellIn);
+    });
+
+});

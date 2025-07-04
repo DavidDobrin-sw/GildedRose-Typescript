@@ -13,7 +13,8 @@ describe('Golden Master test', function () {
              new Item('Backstage passes to a TAFKAL80ETC concert', 20, 20),
              new Item('Sulfuras, Hand of Ragnaros', 1000, 80),
              new Item('dog food', 30, 30),
-             new Item('Aged Brie', 40,35) ]);
+             new Item('Aged Brie', 40,35),
+             new Item('Conjured Mana Cake', 7,20)]);
 
     })
 
@@ -27,7 +28,8 @@ describe('Golden Master test', function () {
             new Item('Backstage passes to a TAFKAL80ETC concert', 19, 21), // -1 sellin, +1 quality
             new Item('Sulfuras, Hand of Ragnaros', 1000, 80), // nothing changes
             new Item('dog food', 29, 29), // -1 both
-            new Item('Aged Brie', 39,36) ]; // -1 sellin, +1 quality
+            new Item('Aged Brie', 39,36), // -1 sellin, +1 quality
+            new Item('Conjured Mana Cake', 6,18)]; // -1 sellin, -2 quality
 
 
         expect(items).to.eql(afterFirstDay);
@@ -46,7 +48,8 @@ describe('Golden Master test', function () {
             new Item('Backstage passes to a TAFKAL80ETC concert', 15, 25), // -5 sellin, +5 quality
             new Item('Sulfuras, Hand of Ragnaros', 1000, 80), // nothing changes
             new Item('dog food', 25, 25), // -5 both
-            new Item('Aged Brie', 35,40) ]; // -5 sellin, +5 quality
+            new Item('Aged Brie', 35,40), // -5 sellin, +5 quality
+            new Item('Conjured Mana Cake', 2,10)]; // -5 sellin, -10 quality
 
 
         expect(items).to.eql(afterFiveDays);
@@ -66,8 +69,8 @@ describe('Golden Master test', function () {
             new Item('Backstage passes to a TAFKAL80ETC concert', 10, 30), // -10 sellin, +10 quality
             new Item('Sulfuras, Hand of Ragnaros', 1000, 80), // nothing changes
             new Item('dog food', 20, 20), // -10 both
-            new Item('Aged Brie', 30,45) ]; // -10 sellin, +10 quality
-
+            new Item('Aged Brie', 30,45), // -10 sellin, +10 quality
+            new Item('Conjured Mana Cake', -3,0)]; // -10 sellin, -22 quality but 0 is minimum
 
         expect(items).to.eql(afterTenDays);
     });

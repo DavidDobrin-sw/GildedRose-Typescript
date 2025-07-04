@@ -76,7 +76,6 @@ describe('Golden Master test', function () {
         let items = gildedRose.updateQuality();
         items = gildedRose.updateQuality(); // 12 days
 
-
         const tickets:Item = new Item('Backstage passes to a TAFKAL80ETC concert', 8, 34); // + 10 and then +2*2 because it enters the last 10 days
         expect(items[3].quality).to.eql(tickets.quality);
         expect(items[3].sellIn).to.eql(tickets.sellIn);

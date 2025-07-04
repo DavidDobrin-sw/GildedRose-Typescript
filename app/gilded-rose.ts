@@ -24,12 +24,32 @@ export class GildedRose {
         this.items[index].sellIn = this.items[index].sellIn - 1;
     }
 
+    updateBackStagePasses(index: number): void{
+        if (this.items[index].quality < 50) {
+            if(this.items[index].sellIn > 10) {
+                this.items[index].quality = this.items[index].quality + 1;
+            } else if (this.items[index].sellIn > 5){
+                this.items[index].quality = Math.min(this.items[index].quality + 2, 50);
+            } else {
+                this.items[index].quality = Math.min(this.items[index].quality + 3, 50);
+            }
+        }
+
+        this.items[index].sellIn = this.items[index].sellIn - 1;
+
+        if (this.items[index].sellIn < 0) {
+            this.items[index].quality = 0;
+        }
+    }
+
     updateQuality() {
         for (let i = 0; i < this.items.length; i++) {
 
             if(this.items[i].name == 'Aged Brie'){
                 this.updateAgedBrie(i);
-            } else if (this.items[i].name != 'Sulfuras, Hand of Ragnaros'){
+            } else if(this.items[i].name == 'Backstage passes to a TAFKAL80ETC concert') {
+                this.updateBackStagePasses(i);
+            } else {
                 if (this.items[i].name != 'Backstage passes to a TAFKAL80ETC concert') {
                     if (this.items[i].quality > 0) {
                         this.items[i].quality = this.items[i].quality - 1

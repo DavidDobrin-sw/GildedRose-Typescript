@@ -79,10 +79,53 @@ describe('Backstage Passes', function () {
         gildedRose.updateQuality();
         gildedRose.updateQuality();
 
-        const passesAfterOneDay: Item = new Item('Aged Brie', 4, 28); // 23 = 10 + 5(after the first 5 days) + 5*2(days 10-6) + 3 (fifth final day)
+        const passesAfterOneDay: Item = new Item('Backstage passes to a TAFKAL80ETC concert', 4, 28); // 28 = 10 + 5(after the first 5 days) + 5*2(days 10-6) + 3 (fifth final day)
 
         expect(passesAfterOneDay.quality).to.eql(gildedRose.items[0].quality);
         expect(passesAfterOneDay.sellIn).to.eql(gildedRose.items[0].sellIn);
+    });
+
+    it('I expect the Backstage passes quality to drop to 0 after the concert', function() {
+        gildedRose.updateQuality();
+        gildedRose.updateQuality();
+        gildedRose.updateQuality();
+        gildedRose.updateQuality();
+        gildedRose.updateQuality();
+
+        const passesAfterOneDay: Item = new Item('Backstage passes to a TAFKAL80ETC concert', -1, 0);
+
+        expect(passesAfterOneDay.quality).to.eql(gildedRose.items[0].quality);
+        expect(passesAfterOneDay.sellIn).to.eql(gildedRose.items[0].sellIn);
+    });
+
+    it('I expect the Backstage passes quality to remain 0 after the concert', function() {
+        gildedRose.updateQuality();
+        gildedRose.updateQuality();
+
+        const passesAfterOneDay: Item = new Item('Backstage passes to a TAFKAL80ETC concert', -3, 0);
+
+        expect(passesAfterOneDay.quality).to.eql(gildedRose.items[0].quality);
+        expect(passesAfterOneDay.sellIn).to.eql(gildedRose.items[0].sellIn);
+    });
+
+    it('I expect the Backstage passes quality to not increase over 50', function() {
+        const gildedRose2 = new GildedRose([new Item('Backstage passes to a TAFKAL80ETC concert', 15, 35)]);
+        gildedRose2.updateQuality();
+        gildedRose2.updateQuality();
+        gildedRose2.updateQuality();
+        gildedRose2.updateQuality();
+        gildedRose2.updateQuality();
+        gildedRose2.updateQuality();
+        gildedRose2.updateQuality();
+        gildedRose2.updateQuality();
+        gildedRose2.updateQuality();
+        gildedRose2.updateQuality();
+        gildedRose2.updateQuality();
+
+        const passesAfterOneDay: Item = new Item('Backstage passes to a TAFKAL80ETC concert', 4, 50);
+
+        expect(passesAfterOneDay.quality).to.eql(gildedRose2.items[0].quality);
+        expect(passesAfterOneDay.sellIn).to.eql(gildedRose2.items[0].sellIn);
     });
 
 });

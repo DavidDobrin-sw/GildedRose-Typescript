@@ -49,7 +49,7 @@ export class GildedRose {
                 this.updateAgedBrie(i);
             } else if(this.items[i].name == 'Backstage passes to a TAFKAL80ETC concert') {
                 this.updateBackStagePasses(i);
-            } else {
+            } else if(this.items[i].name != 'Sulfuras, Hand of Ragnaros') {
                 if (this.items[i].name != 'Backstage passes to a TAFKAL80ETC concert') {
                     if (this.items[i].quality > 0) {
                         this.items[i].quality = this.items[i].quality - 1

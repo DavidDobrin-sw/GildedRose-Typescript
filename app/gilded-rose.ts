@@ -42,6 +42,16 @@ export class GildedRose {
         }
     }
 
+    updateConjuredManaCake(index: number): void{
+        this.items[index].quality = Math.max(this.items[index].quality - 2, 0);
+
+        this.items[index].sellIn = this.items[index].sellIn - 1;
+
+        if(this.items[index].sellIn < 0) {
+            this.items[index].quality = Math.max(this.items[index].quality - 2, 0);
+        }
+    }
+
     updateQuality() {
         for (let i = 0; i < this.items.length; i++) {
 
@@ -49,6 +59,8 @@ export class GildedRose {
                 this.updateAgedBrie(i);
             } else if(this.items[i].name == 'Backstage passes to a TAFKAL80ETC concert') {
                 this.updateBackStagePasses(i);
+            } else if(this.items[i].name == 'Conjured Mana Cake'){
+                this.updateConjuredManaCake(i);
             } else if(this.items[i].name != 'Sulfuras, Hand of Ragnaros') {
                 if (this.items[i].quality > 0) {
                     this.items[i].quality = this.items[i].quality - 1

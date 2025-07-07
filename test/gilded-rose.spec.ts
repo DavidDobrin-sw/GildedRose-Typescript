@@ -177,18 +177,18 @@ describe('Conjured', function () {
         gildedRose.updateQuality();
         gildedRose.updateQuality();
         gildedRose.updateQuality();
-        const cake: Item = new Item('Conjured Mana Cake', -1, 6);
-        expect(cake.quality).to.eql(gildedRose.items[0].quality);
-        expect(cake.sellIn).to.eql(gildedRose.items[0].sellIn);
+        const cakeAfterAging: Item = new Item('Conjured Mana Cake', -1, 6);
+        expect(gildedRose.items[0].quality).to.eql(cakeAfterAging.quality);
+        expect(gildedRose.items[0].sellIn).to.eql(cakeAfterAging.sellIn);
     });
 
     it('I expect the Conjured Mana Cake quality to not decrease over 0', function() {
         gildedRose.updateQuality();
         gildedRose.updateQuality();
 
-        const cake: Item = new Item('Conjured Mana Cake', -3, 0);
-        expect(cake.quality).to.eql(gildedRose.items[0].quality);
-        expect(cake.sellIn).to.eql(gildedRose.items[0].sellIn);
+        const cakeAfterAging: Item = new Item('Conjured Mana Cake', -3, 0);
+        expect(gildedRose.items[0].quality).to.eql(cakeAfterAging.quality);
+        expect(gildedRose.items[0].sellIn).to.eql(cakeAfterAging.sellIn);
     });
 
 });
